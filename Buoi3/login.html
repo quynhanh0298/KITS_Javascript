@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles-login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="main">
+        <form class="content" action="post">
+          <div class="logo"></div>
+          <div class="login">Log in</div>
+          <div class="username">
+            <label for="">Username</label><br />
+            <input type="text" placeholder="username" id="username" />
+          </div>
+          <div class="password">
+            <div class="password-label">
+              <div class="password-label">Password</div>
+              <div class="forgot-password"><a href="">Forgot password?</a></div>
+            </div>
+            <input
+              class="password"
+              type="password"
+              placeholder="password"
+              id="password"
+            />
+          </div>
+          <div id="login-btn" class="login-btn">LOGIN IN</div>
+          <div class="or-continue-with">or continue with</div>
+          <div class="buttons">
+            <div class="google-button">
+              <img src="./asserts/Google.svg" alt="" />
+            </div>
+            <div class="github-button">
+              <img src="./asserts/Github.svg" alt="" />
+            </div>
+            <div class="facebook-button">
+              <img src="./asserts/Facebook.svg" alt="" />
+            </div>
+          </div>
+          <div class="dont-have-account">
+            <a href="">Don't have an account yet?</a>
+            <a href="">Sign up for free</a>
+          </div>
+        </form>
+        <div class="image">
+          <img
+            src="./asserts/346656187_9538373136235823_4284390049404081717_n.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <script>
+      const loginBtn = document.getElementById("login-btn");
+      let username = document.getElementById("username").innerHTML;
+      let password = document.getElementById("password").innerHTML;
+      const usernameInput = document.getElementById("username");
+      const passwordInput = document.getElementById("password");
+
+      usernameInput.onchange = () => {
+        username = usernameInput.value;
+      };
+      passwordInput.onchange = () => {
+        password = passwordInput.value;
+      };
+      async function login() {
+        return fetch("https://dummyjson.com/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: username,
+            password: password,
+            // expiresInMins: 60, // optional
+          }),
+        }).then((res) => {
+          if (res.status !== 200) {
+            console.log("Loi " + res.status);
+            return;
+          }
+          return res.json();
+        });
+      }
+      async function checkOutput() {
+        const output = await login();
+        console.log(output);
+        localStorage.setItem("token", output.token);
+        window.location.assign("baitap3.html");
+      }
+      loginBtn.onclick = () => {
+        console.log(username);
+        console.log(password);
+        checkOutput();
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="product"></div>
+    <script>
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const id = urlParams.get("id");
+      console.log(id);
+      async function getSingleProduct() {
+        return fetch(`https://fakestoreapi.com/products/${id}`).then((res) =>
+          res.json()
+        );
+      }
+
+      async function fetchData() {
+        const item = await getSingleProduct();
+
+        const productDiv = document.getElementById("product");
+        productDiv.innerHTML += `
+        <div class="im">
+        <img class="image" src="${item.image}" alt="">
+          <p>${item.id}</p>
+          <div>${item.title}</div>
+        </div>
+      `;
+      }
+      window.onload = () => {
+        fetchData();
+      };
+    </script>
+  </body>
+</html>

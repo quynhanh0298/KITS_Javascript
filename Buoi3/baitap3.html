@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <!-- Side bar -->
+      <div class="side-bar">
+        <div class="side-bar-top">
+          <a href=""><img src="./asserts/sidebar/logo@0 1.svg" alt="" /></a>
+          <a href=""><img src="./asserts/sidebar/home.svg" alt="" /></a>
+          <a href=""><img src="./asserts/sidebar/bell.svg" alt="" /></a>
+          <a href=""><img src="./asserts/sidebar/calendar.svg" alt="" /></a>
+          <a href=""><img src="./asserts/sidebar/trend.svg" alt="" /></a>
+          <a href=""><img src="./asserts/sidebar/profile.svg" alt="" /></a>
+        </div>
+
+        <div class="side-bar-bottom">
+          <a href=""><img src="./asserts/sidebar/setting.svg" alt="" /></a>
+        </div>
+      </div>
+      <!-- Side bar item chosen -->
+      <div id="side-bar-chosen-item" class="side-bar-chosen-item">
+        <div class="item-name">
+          <div id="settings" class="settings">settings</div>
+        </div>
+        <div id="edit-profile-btn" class="item-prop edit-profile-btn">
+          Edit profile
+        </div>
+        <div id="notification" class="item-prop notification">Notification</div>
+        <div id="security" class="item-prop security">Security</div>
+        <div id="appearance" class="item-prop appearance">Appearance</div>
+        <div id="help" class="item-prop help">Help</div>
+      </div>
+      <!-- Content -->
+      <div class="scroll">
+        <form action="" class="content">
+          <div class="edit-profile">
+            <span>Edit profile</span>
+            <a id="logout">Logout</a>
+            <img class="avatar" src="./asserts/main-content/logo.svg" alt="" />
+          </div>
+          <div class="name">
+            <div>
+              <label for="">First Name</label><br />
+              <input id="first-name" type="text" placeholder="Quynh Anh" />
+            </div>
+            <div>
+              <label for="">Last Name</label><br />
+              <input id="last-name" type="text" placeholder="Nguyen" />
+            </div>
+          </div>
+          <div class="email">
+            <label for="">Email</label><br />
+            <input id="email" type="text" placeholder="example@gmail.com" />
+          </div>
+          <div class="address">
+            <label for="">Address</label><br />
+            <input id="address" type="text" placeholder="33062 Zboncak isle" />
+          </div>
+          <div class="contact-number">
+            <label for="">Contact Number</label><br />
+            <input id="contact-number" type="text" placeholder="0984333636" />
+          </div>
+          <div class="city">
+            <label for="">City</label><br />
+            <select name="" id="">
+              <option value=""></option>
+            </select>
+          </div>
+          <div>
+            <button id="cancel-btn" class="cancel">Cancel</button>
+            <button id="save-btn" class="save">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
